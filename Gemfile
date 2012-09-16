@@ -4,6 +4,9 @@ gem 'rake'
 gem 'sinatra', '~> 1.2.3'
 gem 'shotgun', '~> 0.9'
 gem 'haml', '~> 3.1.4'
+gem "sequel"
+gem "sequel_pg"
+gem "pg", "0.13.2"
 
 # Sass & Compass
 gem 'sass', '~> 3.1.12'
