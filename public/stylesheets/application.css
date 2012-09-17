@@ -4320,6 +4320,9 @@ a.label:hover, a.badge:hover {
 .container {
   margin-top: 4em;
 }
+.container a.brand {
+  font-family: 'PT Sans', sans-serif;
+}
 
 .navbar .container {
   margin-top: 0em;
