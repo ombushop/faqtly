@@ -4,6 +4,9 @@
 @import 'compass/css3';
 
 .container {
+  a.brand {
+    font-family: 'PT Sans', sans-serif;
+  }
   margin-top: 4em;
 }
 
@@ -16,7 +19,7 @@
 // Base font
 //=font-default
   //font: 13px Arial, Helvetica, sans-serif
-  
+
 //// Links
 //a
   //color: #3366CC
