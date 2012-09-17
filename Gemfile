@@ -4,7 +4,7 @@ gem 'rake'
 gem 'sinatra', '~> 1.2.3'
 gem 'shotgun', '~> 0.9'
 gem 'haml', '~> 3.1.4'
-gem "sequel"
+gem 'sequel'
 gem "sequel_pg"
 gem "pg", "0.13.2"
 
@@ -17,4 +17,9 @@ gem 'grid-coordinates', '~> 1.1.4'
 
 group :deployment do
   gem 'heroku'
+end
+
+group :development do
+  gem 'pry'
+  gem 'pry-nav'
 end
