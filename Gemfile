@@ -19,7 +19,10 @@ group :deployment do
   gem 'heroku'
 end
 
-group :development do
-  gem 'pry'
-  gem 'pry-nav'
+group :development, :test do
+  gem 'debugger'
+end
+
+group :test do
+  gem 'factory_girl'
 end

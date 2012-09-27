@@ -8,9 +8,9 @@ This web application lets you:
 * Search for an answer
 * Manage questions and answers
 
-## What is the purpose of Faqtly? 
+## What is the purpose of Faqtly?
 
-Just a simple way to launch a FAQ web application for your service. 
+Just a simple way to launch a FAQ web application for your service.
 
 ## How do I get started?
 

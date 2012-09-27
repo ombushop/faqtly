@@ -7,6 +7,6 @@ module Sinatra
       haml page, options.merge!(:layout => false)
     end
   end
- 
+
   helpers RenderPartial
 end

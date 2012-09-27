@@ -1,0 +1,5 @@
+# Roadmap for faqtly
+
+- Questions CRUD
+- FAQ's CRUD
+- Admin area
