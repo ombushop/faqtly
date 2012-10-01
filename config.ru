@@ -1,5 +1,3 @@
-require 'rubygems'
-require 'sinatra'
-require './app'
-
-run App
+root = ::File.dirname(__FILE__)
+require ::File.join( root, 'app' )
+run Faqtly.new

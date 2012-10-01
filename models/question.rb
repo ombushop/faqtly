@@ -1,3 +1,4 @@
+# encoding: utf-8
 class Question < Sequel::Model
   plugin :validation_helpers
 

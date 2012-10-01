@@ -38,6 +38,10 @@ You'll also want to open a new terminal window to the same directory and run the
 
 Or you just run `compass watch`, either work.
 
+## Credits
+
+- To Gavin Kistner (@phrogz42) for coming up with the organizational structure for the app (see http://goo.gl/nkRvU)
+
 ## License
 
 Copyright (c) 2011 OmbuShop

@@ -1,40 +1,21 @@
-require 'rubygems'
 require 'sinatra'
 require 'haml'
-require 'sequel'
 
-# Helpers
-require './lib/render_partial'
 
-class App < Sinatra::Application
-  # Set Sinatra variables
+class Faqtly < Sinatra::Application
+
+  enable :logging
+
   configure :production, :development do
     set :app_file, __FILE__
     set :root, File.dirname(__FILE__)
     set :views, 'views'
     set :public_folder, 'public'
     set :haml, { format: :html5 } # default Haml format is :xhtml
-    enable :logging
-  end
-
-  # Application routes
-  get '/' do
-    haml :index, layout: :'layouts/application'
-  end
-
-  get '/about' do
-    haml :about, layout: :'layouts/page'
-  end
-
-  # questions routes
-  get '/questions/new' do
-    @question = Question.new
-    haml :'questions/new', layout: :'layouts/application'
-  end
-
-  post '/questions' do
-    # @question =
+    set :clean_trace, true
   end
 end
 
 require_relative 'models/init'
+require_relative 'helpers/init'
+require_relative 'routes/init'
