@@ -3,6 +3,7 @@ require 'bundler/setup'
 require 'haml'
 
 require 'sinatra' unless defined?(Sinatra)
+require 'app'
 
 configure do
   # load models
@@ -11,5 +12,5 @@ configure do
     require File.basename(lib, '.*')
   end
 
-Sequel.connect(ENV["DATABASE_URL"] || "postgres://localhost/ayuda_#{Sinatra::Base.environment}")
+
 end

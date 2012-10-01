@@ -1,0 +1,15 @@
+%form{ action: '/questions', method: 'post', class: 'form-horizontal' }
+  %legend Adding a new question huh?
+  .control-group
+    %label{ for: 'question[question]', class: 'control-label' }
+      Frequent Question:
+    .controls
+      %input{ id: 'question[question]', name: 'question[question]', size: '30', type: 'text', placeholder: 'Enter your question', class: 'input-xxlarge' }
+
+  .control-group
+    %label{ for: 'question[answer]', class: 'control-label' }
+      Answered by:
+    .controls
+      %textarea{ id: 'question[answer]', name: 'question[answer]', placeholder: 'The answer is...', rows: '10', class: 'input-xxlarge' }
+
+  %button{ type: 'submit', class: 'btn btn-primary' } Create Question
