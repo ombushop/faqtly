@@ -7,6 +7,7 @@ gem 'haml', '~> 3.1.4'
 gem 'sequel'
 gem "sequel_pg"
 gem "pg", "0.13.2"
+gem 'thin'
 
 # Sass & Compass
 gem 'sass', '~> 3.1.12'
@@ -21,10 +22,6 @@ end
 
 group :development, :test do
   gem 'debugger'
-end
-
-group :development do
-  gem 'thin'
 end
 
 group :test do
