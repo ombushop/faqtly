@@ -23,6 +23,10 @@ group :development, :test do
   gem 'debugger'
 end
 
+group :development do
+  gem 'thin'
+end
+
 group :test do
   gem 'factory_girl'
 end
