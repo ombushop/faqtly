@@ -13,6 +13,10 @@ set :views, 'views'
 set :public_folder, 'public'
 set :haml, { format: :html5 } # default Haml format is :xhtml
 
+configure :production, :development do
+  enable :logging
+end
+
 # Application routes
 get '/' do
   haml :index, :layout => :'layouts/application'
