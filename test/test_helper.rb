@@ -3,7 +3,14 @@ require 'bundler'
 Bundler.setup(:default, :test)
 require 'sinatra'
 require 'test/unit'
+require 'rack/test'
+require 'debugger'
 require 'sequel_test_case'
+
+# Making Rack::Test available to all test cases
+class Test::Unit::TestCase
+  include Rack::Test::Methods
+end
 
 # set test environment
 Sinatra::Base.set :environment, :test
