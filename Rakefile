@@ -9,7 +9,10 @@ Dir["tasks/*.rake"].sort.each { |ext| load ext }
 
 Rake::TestTask.new do |t|
   t.libs << "test"
-  t.test_files = FileList['test/test*.rb']
+  t.libs << "models"
+  t.libs << "routes"
+  t.libs << "helpers"
+  t.test_files = FileList['test/**/test*.rb']
   t.verbose = true
 end
 
