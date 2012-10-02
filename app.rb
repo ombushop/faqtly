@@ -1,9 +1,7 @@
 require 'sinatra'
 require 'haml'
 
-
 class Faqtly < Sinatra::Application
-
   enable :logging
 
   configure :production, :development do

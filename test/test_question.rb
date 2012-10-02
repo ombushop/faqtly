@@ -1,5 +1,5 @@
 require "#{File.dirname(__FILE__)}/test_helper"
-require "#{File.dirname(__FILE__)}/../lib/question"
+require "#{File.dirname(__FILE__)}/../models/question"
 
 class QuestionTest < SequelTestCase
   def test_it_requires_all_fields
