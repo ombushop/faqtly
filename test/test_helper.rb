@@ -9,6 +9,7 @@ require 'sequel_test_case'
 
 # Making Rack::Test available to all test cases
 class Test::Unit::TestCase
+  ENV['RACK_ENV'] = 'test'
   include Rack::Test::Methods
 end
 
