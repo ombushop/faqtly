@@ -1,11 +1,4 @@
 Autotest.add_hook :initialize do |at|
-#   ##
-#   # none of the default mappings match us, so we're removing them
-#   #
-#   at.clear_mappings
-# end
-#
-# Autotest.add_hook :after_initialize do |at|
   ##
   # file in /models -> run test in /test/models
   #
