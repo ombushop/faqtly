@@ -8,12 +8,21 @@ class Faqtly < Sinatra::Application
     haml :about, layout: :'layouts/page'
   end
 
+  get '/questions' do
+    @questions = Question.all
+    haml :'questions/index', layout: :'layouts/application'
+  end
+
   get '/questions/new' do
     @question = Question.new
     haml :'questions/new', layout: :'layouts/application'
   end
 
   post '/questions' do
-    # @question =
+    @question = Question.new(params[:question])
+    if @question.save
+      @questions = Question.all
+      haml :'questions/index', layout: :'layouts/application'
+    end
   end
 end

@@ -1,0 +1,25 @@
+%h1 F.A.Q
+
+- @questions.each do |q|
+  %h3= q.question
+  %p= q.answer
+
+-#
+-# #accordion2.accordion
+-#   .accordion-group
+-#     .accordion-heading
+-#       %a.accordion-toggle{ "data-toggle" => "collapse", "data-parent" => "#accordion2", href: "#collapseOne" }
+-#         Collapsible Group Item #1
+-#
+-#     #collapseOne.accordion-body.collapse.in
+-#       .accordion-inner
+-#         Anim pariatur cliche...
+-#
+-#   .accordion-group
+-#     .accordion-heading
+-#       %a.accordion-toggle{ "data-toggle" => "collapse", "data-parent" => "#accordion2", href: "#collapseTwo" }
+-#         Collapsible Group Item #2
+-#
+-#     #collapseTwo.accordion-body.collapse
+-#       .accordion-inner
+-#         Anim pariatur cliche...
