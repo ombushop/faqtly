@@ -12,6 +12,11 @@ class Faqtly < Sinatra::Application
     set :haml, { format: :html5 } # default Haml format is :xhtml
     set :clean_trace, true
   end
+
+  configure :test do
+    set :root, File.dirname(__FILE__)
+    set :views, "#{File.dirname(__FILE__)}/views"
+  end
 end
 
 require_relative 'models/init'

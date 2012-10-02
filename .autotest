@@ -1,6 +1,31 @@
 Autotest.add_hook :initialize do |at|
-  # file in /models -> run test in /test
+#   ##
+#   # none of the default mappings match us, so we're removing them
+#   #
+#   at.clear_mappings
+# end
+#
+# Autotest.add_hook :after_initialize do |at|
+  ##
+  # file in /models -> run test in /test/models
+  #
   at.add_mapping(/^models\/.*\.rb$/) do |filename, _|
-    at.files_matching %r%^test/.*#{filename}$%
+    at.files_matching %r%^test/models/.*#{filename}$%
   end
+
+  ##
+  # file in /routes -> run test in /test/routes
+  #
+  at.add_mapping(/^routes\/.*\.rb$/) do |filename, _|
+    at.files_matching %r%^test/routes/.*#{filename}$%
+  end
+
+  ##
+  # file in /helpers -> run test in /test/helpers
+  #
+  at.add_mapping(/^helpers\/.*\.rb$/) do |filename, _|
+    at.files_matching %r%^test/helpers/.*#{filename}$%
+  end
+
+
 end
