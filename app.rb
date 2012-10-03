@@ -1,16 +1,13 @@
-require 'sinatra'
-require 'haml'
-
+require './config/environment'
 class Faqtly < Sinatra::Application
-  enable :logging
-
   configure :production, :development do
+    enable :logging
     set :app_file, __FILE__
     set :root, File.dirname(__FILE__)
     set :views, 'views'
     set :public_folder, 'public'
     set :haml, { format: :html5 } # default Haml format is :xhtml
-    set :clean_trace, true
+    enable :clean_trace
   end
 
   configure :test do
