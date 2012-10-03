@@ -27,4 +27,12 @@ class TestFaqtly < Test::Unit::TestCase
     assert last_response.body.include?("Hello world!")
   end
 
+  def test_error_messages_on_failed_question_create
+    old_count = Question.count
+    post '/questions', question: { question: "", answer: "" }
+    assert last_response.body.include?("answer is not present")
+    assert last_response.body.include?("question is not present")
+    assert_equal old_count, Question.count
+  end
+
 end

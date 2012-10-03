@@ -20,9 +20,12 @@ class Faqtly < Sinatra::Application
 
   post '/questions' do
     @question = Question.new(params[:question])
+    @question.raise_on_save_failure = false
     if @question.save
       @questions = Question.all
       haml :'questions/index', layout: :'layouts/application'
+    else
+      haml :'questions/new', layout: :'layouts/application'
     end
   end
 end

@@ -1,15 +1,23 @@
 %form{ action: '/questions', method: 'post', class: 'form-horizontal',  id: 'new-questions-form' }
   %legend Adding a new question huh?
-  .control-group
+  %div{ class: "control-group #{'error' if @question.errors.any?}"}
     %label{ for: 'question[question]', class: 'control-label' }
       Frequent Question:
     .controls
-      %input{ id: 'question[question]', name: 'question[question]', size: '30', type: 'text', placeholder: 'Enter your question', class: 'input-xxlarge' }
+      - question = { id: 'question[question]', name: 'question[question]', size: '30', type: 'text', placeholder: 'Enter your question', class: 'input-xxlarge' }
+      - question.merge!({ value: @question.question }) if @question.errors.has_key? :question
+      %input{ question }
+      - if @question.errors.has_key? :question
+        %span.help-inline= @question.errors.on(:question).map! { |m| "question " + m }.join(", ")
 
-  .control-group
+  %div{ class: "control-group #{'error' if @question.errors.any?}"}
     %label{ for: 'question[answer]', class: 'control-label' }
       Answered by:
     .controls
-      %textarea{ id: 'question[answer]', name: 'question[answer]', placeholder: 'The answer is...', rows: '10', class: 'input-xxlarge' }
+      - answer = { id: 'question[answer]', name: 'question[answer]', placeholder: 'The answer is...', rows: '10', class: 'input-xxlarge' }
+      - answer.merge!({ value: @question.answer }) if @question.errors.has_key? :answer
+      %textarea{ answer }
+      - if @question.errors.has_key? :question
+        %span.help-inline= @question.errors.on(:answer).map! { |m| "answer " + m }.join(", ")
 
   %button{ type: 'submit', class: 'btn btn-primary' } Create Question
