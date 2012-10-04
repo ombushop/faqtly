@@ -1,4 +1,10 @@
-%h1 F.A.Q
+%h1 FAQtly
+
+- if @questions.empty?
+  %h2 No questions found!
+
+  %a{href: '/questions/new'}
+    Add a Question
 
 - @questions.each do |q|
   %h3= q.question
