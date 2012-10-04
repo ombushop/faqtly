@@ -22,6 +22,12 @@ Then:
 
     bundle install
 
+Then: 
+
+    # Create databases ayuda_development, ayuda_test, ayuda_production 
+
+    bundle exec rake sq:migrate:auto
+
 ## How do I start the application?
 
 After you've ran `bundle install` and Sinatra as well as the other required gems are installed, start it up by running this command:
