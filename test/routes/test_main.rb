@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TestFaqtly < Test::Unit::TestCase
+class TestMain < Test::Unit::TestCase
 
   def app
     Faqtly
@@ -21,10 +21,17 @@ class TestFaqtly < Test::Unit::TestCase
     assert last_response.body.include?("id='new-questions-form'")
   end
 
+  def test_questions_edit
+    @question = Question.create( question: 'How much wood would a woodchuck chuck?',
+                      answer:   'alot' )
+    get "/questions/edit/#{@question.id}"
+    assert_equal 200, last_response.status
+    assert last_response.body.include?("value='put'")
+  end
+
   def test_create_a_question
-    post '/questions', question: { question: "Hello?", answer: 'Hello world!'}
-    assert last_response.body.include?("F.A.Q")
-    assert last_response.body.include?("Hello world!")
+    post '/questions', question: { question: "Hello?", answer: 'Hello world!' }
+    assert_equal 302, last_response.status
   end
 
   def test_error_messages_on_failed_question_create
@@ -35,4 +42,20 @@ class TestFaqtly < Test::Unit::TestCase
     assert_equal old_count, Question.count
   end
 
+  def test_questions_update
+    @question = Question.create( question: 'Lightning?',
+                      answer:   'Thunder!' )
+
+    put "/question/#{@question.id}", question: { question: "WWSJD?" }
+    assert_equal "WWSJD?", Question[@question.id].question
+  end
+
+  def test_question_show
+    @question = Question.create( question: 'What would Steve Jobs do?',
+                      answer:   'He would probably Stay hungry Stay foolish.' )
+
+    get "/question/#{@question.id}"
+    assert_equal 200, last_response.status
+    assert last_response.body.include?('Steve Jobs')
+  end
 end

@@ -7,8 +7,13 @@
     Add a Question
 
 - @questions.each do |q|
-  %h3= q.question
-  %p= q.answer
+  .row
+    .span6
+      %h3= q.question
+      %p= q.answer
+    .span1.small
+      %a{ href: "/questions/edit/#{q.id}"} edit
+      %a{ href: "/question/#{q.id}"} view
 
 -#
 -# #accordion2.accordion
