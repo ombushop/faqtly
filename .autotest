@@ -7,10 +7,10 @@ Autotest.add_hook :initialize do |at|
   end
 
   ##
-  # file in /routes -> run test in /test/routes
+  # file in /routes -> run test in /test
   #
   at.add_mapping(/^routes\/.*\.rb$/) do |filename, _|
-    at.files_matching %r%^test/routes/.*#{filename}$%
+    at.files_matching %r%^test/.*#{filename}$%
   end
 
   ##
