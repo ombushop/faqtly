@@ -24,7 +24,7 @@ class TestMain < Test::Unit::TestCase
   def test_questions_edit
     @question = Question.create( question: 'How much wood would a woodchuck chuck?',
                       answer:   'alot' )
-    get "/questions/edit/#{@question.id}"
+    get "/questions/#{@question.id}/edit"
     assert_equal 200, last_response.status
     assert last_response.body.include?("value='put'")
   end

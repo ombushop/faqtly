@@ -19,7 +19,7 @@ class Faqtly < Sinatra::Application
     haml :'questions/new', layout: :'layouts/application'
   end
 
-  get '/questions/edit/:id' do
+  get '/questions/:id/edit' do
     @question = Question[params[:id]]
     haml :'questions/edit', layout: :'layouts/application'
   end
