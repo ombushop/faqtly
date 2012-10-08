@@ -22,6 +22,8 @@ end
 
 group :development, :test do
   gem 'debugger'
+  gem 'pry'
+  gem 'pry-nav'
 end
 
 group :test do
