@@ -1,0 +1,21 @@
+@import "compass/css3";
+@import "bootstrap/mixins";
+
+.navbar-inner {
+  background-color: #128382;
+  @include gradient-vertical(#FFF, #FFF);
+
+  a.brand img {
+    width: 125px;
+  }
+}
+
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
+  background-color: transparent;
+  color: #2BA47B;
+  text-decoration: underline;
+}
+
+.navbar .nav > li > a.link {
+  padding-top: 30px;
+}
