@@ -46,7 +46,7 @@ class TestMain < Test::Unit::TestCase
     @question = Question.create( question: 'Lightning?',
                       answer:   'Thunder!' )
 
-    put "/question/#{@question.id}", question: { question: "WWSJD?" }
+    put "/questions/#{@question.id}", question: { question: "WWSJD?" }
     assert_equal "WWSJD?", Question[@question.id].question
   end
 
@@ -54,7 +54,7 @@ class TestMain < Test::Unit::TestCase
     @question = Question.create( question: 'What would Steve Jobs do?',
                       answer:   'He would probably Stay hungry Stay foolish.' )
 
-    get "/question/#{@question.id}"
+    get "/questions/#{@question.id}"
     assert_equal 200, last_response.status
     assert last_response.body.include?('Steve Jobs')
   end
