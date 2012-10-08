@@ -1,3 +1,5 @@
+require 'pry'
+
 # encoding: utf-8
 class Faqtly < Sinatra::Application
 
@@ -16,6 +18,12 @@ class Faqtly < Sinatra::Application
 
   get '/questions' do
     @questions = Question.all
+    haml :'questions/index', layout: :'layouts/application'
+  end
+
+  get '/questions/search' do
+    binding.pry
+    @questions = Question.full_text_search(params[:q])
     haml :'questions/index', layout: :'layouts/application'
   end
 

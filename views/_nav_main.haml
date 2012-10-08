@@ -8,6 +8,11 @@
           %a{href: '/about'} About          
         %li
           %a{href: '/questions/new'} Add a Question
+      #search
+        %form#search{action: "/questions/search"}
+          %input#text{name: 'q', placeholder: 'Buscar...'}
+          %button{style: 'display:none'}
+            Submit
 
 
       
