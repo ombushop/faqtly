@@ -1,5 +1,7 @@
 require './config/environment'
 class Faqtly < Sinatra::Application
+  set :sessions => true
+  
   configure :production, :development do
     enable :logging
     set :app_file, __FILE__
