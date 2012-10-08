@@ -17,3 +17,4 @@
       = @question.answer if @question.answer
     - if @question.errors.has_key? :question
       %span.help-inline= @question.errors.on(:answer).map! { |m| "answer " + m }.join(", ")
+

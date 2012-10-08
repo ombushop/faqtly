@@ -1,5 +1,5 @@
-%form{ action: "/question/#{@question.id}", method: 'post', class: 'form-horizontal',  id: 'new-questions-form' }
+%form{ action: "/questions/#{@question.id}", method: 'post', class: 'form-horizontal',  id: 'new-questions-form' }
   %input{ type: 'hidden', name: '_method', value: "put" }
-  %legend Edit that question!
+  %legend Editing
   = partial :'questions/_form'
   %button{ type: 'submit', class: 'btn btn-primary' } Update Question
