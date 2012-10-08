@@ -12,6 +12,11 @@ class Faqtly < Sinatra::Application
     haml :'questions/index', layout: :'layouts/application'
   end
 
+  get '/stylesheets/:name.css' do
+    content_type 'text/css', :charset => 'utf-8'
+    scss(:"stylesheets/#{params[:name]}", Compass.sass_engine_options)
+  end
+
   get '/about' do
     haml :about, layout: :'layouts/application'
   end
