@@ -22,8 +22,8 @@ class Faqtly < Sinatra::Application
   end
 
   get '/questions/search' do
-    binding.pry
-    @questions = Question.full_text_search(params[:q])
+    @query = params[:q]
+    @questions = Question.full_text_search(@query)
     haml :'questions/index', layout: :'layouts/application'
   end
 
