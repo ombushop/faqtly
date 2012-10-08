@@ -1,5 +1,3 @@
-require 'pry'
-
 # encoding: utf-8
 class Faqtly < Sinatra::Application
 
