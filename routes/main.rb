@@ -1,5 +1,10 @@
 # encoding: utf-8
 class Faqtly < Sinatra::Application
+
+  get '/404' do
+    haml :'404'
+  end
+
   get '/' do
     @questions = Question.all
     haml :'questions/index', layout: :'layouts/application'
