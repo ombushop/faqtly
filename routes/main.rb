@@ -20,6 +20,7 @@ class Faqtly < Sinatra::Application
   end
 
   get '/questions/:id/edit' do
+    protected!
     @question = Question[params[:id]]
     haml :'questions/edit', layout: :'layouts/application'
   end
@@ -35,7 +36,7 @@ class Faqtly < Sinatra::Application
     end
   end
 
-  put '/question/:id' do
+  put '/questions/:id' do
     @question = Question[params[:id]]
     @question.raise_on_save_failure = false
     if @question.update(params[:question])
@@ -45,7 +46,7 @@ class Faqtly < Sinatra::Application
     end
   end
 
-  get '/question/:id' do
+  get '/questions/:id' do
     @question = Question[params[:id]]
     haml :'questions/show', layout: :'layouts/application'
   end
