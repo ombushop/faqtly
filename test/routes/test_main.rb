@@ -55,7 +55,7 @@ class TestMain < Test::Unit::TestCase
     @question = Question.create( question: 'What would Steve Jobs do?',
                       answer:   'He would probably Stay hungry Stay foolish.' )
 
-    get "/questions/#{@question.id}"
+    get "/questions/#{@question.permalink}"
     assert_equal 200, last_response.status
     assert last_response.body.include?('Steve Jobs')
   end
