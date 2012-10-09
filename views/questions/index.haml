@@ -1,10 +1,9 @@
-%h1 Preguntas Frecuentes
+%h1= t(:faq)
 
 - if @questions.empty?
-  %h2 No questions found!
+  %h2= t(:no_questions)
 
-  %a{href: '/questions/new'}
-    Add a Question
+  %a{href: '/questions/new'}= t(:'questions.ask')
 
 - @questions.each do |q|
   .row
@@ -12,8 +11,8 @@
       %h3= q.question
       %p= q.answer
     .span1.small
-      %a{ href: "/questions/#{q.id}/edit"} edit
-      %a{ href: "/questions/#{q.permalink}"} view
+      %a{ href: "/questions/#{q.id}/edit"}= t(:edit)
+      %a{ href: "/questions/#{q.permalink}"}= t(:show)
 
 -#
 -# #accordion2.accordion

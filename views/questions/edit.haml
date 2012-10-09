@@ -1,5 +1,7 @@
 %form{ action: "/questions/#{@question.id}", method: 'post', class: 'form-horizontal',  id: 'new-questions-form' }
   %input{ type: 'hidden', name: '_method', value: "put" }
-  %legend Editing
+  %legend= t(:editing)
   = partial :'questions/_form'
-  %button{ type: 'submit', class: 'btn btn-primary' } Update Question
+  .control-group.span9
+    .controls.pull-right
+      %button{ type: 'submit', class: 'btn btn-primary' }= t(:update)

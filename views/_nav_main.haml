@@ -6,14 +6,13 @@
           %a.brand{:href => "/", title: 'OmbuShop. Preguntas y Respuestas.'}
             %img{src: '/images/ombushop-tutiendaonline-logo.png', alt: 'OmbuShop, Tu Tienda Online'}
         %li
-          %a.link{href: '/about'} About          
+          %a.link{href: '/about'}= t(:about)
         %li
-          %a.link{href: '/questions/new'} Add a Question
+          %a.link{href: '/questions/new'}= t(:'questions.ask')
       %form#search{class: "navbar-search pull-right", action: "/questions/search"}
-        %input#text{name: 'q', placeholder: 'Buscar...', class: "search-query span4",
+        %input#text{name: 'q', placeholder: t(:search_placeholder), class: "search-query span4",
                     value: @query}
-        %button{style: 'display:none'}
-          Submit
+        %button{style: 'display:none'}= t(:search)
 
 
       

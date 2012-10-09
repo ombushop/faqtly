@@ -1,18 +1,16 @@
 %div{ class: "control-group #{'error' if @question.errors.any?}"}
-  %label{ for: 'question[question]', class: 'control-label' }
-    Frequent Question:
+  %label{ for: 'question[question]', class: 'control-label' }= t(:frequent_question)
   .controls
-    - question = { id: 'question[question]', name: 'question[question]', size: '30', type: 'text', placeholder: 'Enter your question', class: 'input-xxlarge' }
+    - question = { id: 'question[question]', name: 'question[question]', size: '30', type: 'text', placeholder: t(:question_placeholder), class: 'input-xxlarge' }
     - question.merge!({ value: @question.question }) if @question.question
     %input{ question }
     - if @question.errors.has_key? :question
       %span.help-inline= @question.errors.on(:question).map! { |m| "question " + m }.join(", ")
 
 %div{ class: "control-group #{'error' if @question.errors.any?}"}
-  %label{ for: 'question[answer]', class: 'control-label' }
-    Answered by:
+  %label{ for: 'question[answer]', class: 'control-label' }= t(:response)
   .controls
-    - answer = { id: 'question[answer]', name: 'question[answer]', placeholder: 'The answer is...', rows: '10', class: 'input-xxlarge' }
+    - answer = { id: 'question[answer]', name: 'question[answer]', placeholder: t(:response_placeholder), rows: '10', class: 'input-xxlarge' }
     %textarea{ answer }
       = @question.answer if @question.answer
     - if @question.errors.has_key? :question
