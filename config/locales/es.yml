@@ -1,0 +1,20 @@
+"es":
+  about: "Ayuda"
+  back: "Volver"
+  create: "Create"
+  edit: "Editar"
+  editing: "Editando"
+  faq: "Preguntas Frecuentes"
+  frequent_question: "Pregunta Frecuente"
+  no_questions: "¡No encontramos preguntas!"
+  question_placeholder: "Ingresa la Pregunta"
+  questions:
+    ask: "Hacer una Pregunta"
+    asking: "Haciendo una Pregunta"
+  response: "Respuesta"
+  response_placeholder: "La respuesta es..."
+  search_placeholder: "Buscar..."
+  search: "Buscar"
+  show: "Ver"
+  update: "Actualizar"
+
