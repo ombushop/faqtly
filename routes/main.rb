@@ -62,8 +62,8 @@ class Faqtly < Sinatra::Application
     end
   end
 
-  get '/questions/:id' do
-    @question = Question[params[:id]]
+  get %r{/questions/(.*)} do |permalink|
+    @question = Question.find_by_permalink(Rack::Utils.escape(permalink))
     haml :'questions/show', layout: :'layouts/application'
   end
 end
