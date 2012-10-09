@@ -1,5 +1,3 @@
-require 'pry'
-
 # encoding: utf-8
 class Question < Sequel::Model
   plugin :validation_helpers
@@ -31,7 +29,6 @@ class Question < Sequel::Model
 
   # Updates the permalink using Rack::Utils
   def before_validation
-    binding.pry
     self.permalink = Rack::Utils.escape(self.question)
   end
 end
