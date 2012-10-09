@@ -70,6 +70,8 @@ GEM
     sinatra (1.2.8)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
+    sinatra-support (1.2.2)
+      sinatra (>= 1.0)
     slop (3.3.3)
     thin (1.5.0)
       daemons (>= 1.0.9)
@@ -88,6 +90,7 @@ DEPENDENCIES
   grid-coordinates (~> 1.1.4)
   haml (~> 3.1.4)
   heroku
+  i18n
   pg (= 0.13.2)
   pry
   pry-nav
@@ -98,4 +101,5 @@ DEPENDENCIES
   sequel_pg
   shotgun (~> 0.9)
   sinatra (~> 1.2.3)
+  sinatra-support
   thin
