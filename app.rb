@@ -5,6 +5,9 @@ class Faqtly < Sinatra::Application
   set :haml, {:format => :html5, :escape_html => true}
   set :scss, {:style => :compact, :debug_info => false}
 
+  register Sinatra::I18nSupport
+  load_locales File.join(Sinatra::Application.root, 'locales')
+
   configure :production, :development do
     enable :logging
     set :app_file, __FILE__
