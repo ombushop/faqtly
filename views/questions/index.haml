@@ -1,4 +1,4 @@
-%h1 FAQtly
+%h1 Preguntas Frecuentes
 
 - if @questions.empty?
   %h2 No questions found!
@@ -13,7 +13,7 @@
       %p= q.answer
     .span1.small
       %a{ href: "/questions/#{q.id}/edit"} edit
-      %a{ href: "/questions/#{q.id}"} view
+      %a{ href: "/questions/#{q.permalink}"} view
 
 -#
 -# #accordion2.accordion
