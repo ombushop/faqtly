@@ -36,6 +36,15 @@ class TestMain < Test::Unit::TestCase
     assert last_response.body.include?("value='put'")
   end
 
+  def test_questions_search
+    @question = Question.create( question: 'Y candela? Y la moto?',
+                      answer:   'alot' )
+
+    get "/questions/search?q=candela"
+    assert_equal 200, last_response.status
+    assert last_response.body.include?("la moto")
+  end  
+
   def test_create_a_question
     basic_authorize('admin', 'admin')
     post '/questions', question: { question: "Hello?", answer: 'Hello world!' }
