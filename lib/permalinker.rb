@@ -6,7 +6,7 @@ module Permalinker
   # 
   # @param [String] Unescaped input
   # @return [String] Escaped URL
-  def escape_for_url(string)
+  def escape_for_url(string = '')
     result = Rack::Utils.escape(string).gsub(/\+/,'-')
   end
 
@@ -15,7 +15,8 @@ module Permalinker
   # 
   # @param [String] Unescaped string
   # @return [String] Clean and escaped string
-  def generate_permalink(string)
+  def generate_permalink(string = '')
+    return '' if string.nil?
     # s = string.gsub(/[\?\¿]/,'')
 
     s = string.gsub(/[\?]/,'')
