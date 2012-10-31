@@ -1,4 +1,5 @@
-require './config/environment'
+require_relative 'lib/permalink'
+require_relative 'config/environment'
 
 class Faqtly < Sinatra::Application
   set :sessions => true
