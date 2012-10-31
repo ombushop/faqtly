@@ -1,4 +1,4 @@
-module Permalink
+module Permalinker
 
   # Converts a string in a URL friendly string
   # @param [String] Unescaped input
