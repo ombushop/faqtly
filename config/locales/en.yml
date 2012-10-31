@@ -1,7 +1,8 @@
 "en":
   about: "About"
   back: "Back"
-  create: "Crear"
+  create: "Create"
+  delete: "Delete"
   edit: "Edit"
   editing: "Editing"
   faq: "FAQs"
@@ -13,7 +14,9 @@
     ask: "Ask a Question"
     asking: "Asking a Question"
   tags:
+    add: "Add a Tag"
     adding: "Adding a Tag"
+    title: "Tags"    
   response: "Answer"
   response_placeholder: "The answer is..."
   search_placeholder: "Search..."

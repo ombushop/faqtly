@@ -2,6 +2,7 @@
   about: "Ayuda"
   back: "Volver"
   create: "Create"
+  delete: "Eliminar"
   edit: "Editar"
   editing: "Editando"
   faq: "Preguntas Frecuentes"
@@ -13,7 +14,9 @@
     ask: "Hacer una Pregunta"
     asking: "Haciendo una Pregunta"
   tags:
-    adding: "Agregando un Tag"    
+    add: "Crear una Etiqueta"
+    adding: "Agregando un Tag"
+    title: "Tags"    
   response: "Respuesta"
   response_placeholder: "La respuesta es..."
   search_placeholder: "Buscar..."
@@ -21,4 +24,3 @@
   tag_placeholder: "Procesadores de Pagos"
   show: "Ver"
   update: "Actualizar"
-
