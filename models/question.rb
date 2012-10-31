@@ -32,6 +32,6 @@ class Question < Sequel::Model
 
   # Updates the permalink using Rack::Utils
   def before_validation
-    self.permalink = escape_for_url(self.question)
+    self.permalink = generate_permalink(self.question)
   end
 end

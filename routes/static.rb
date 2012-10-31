@@ -29,7 +29,7 @@ module Routes
     end  
 
     get %r{/questions/(.*)} do |permalink|
-      @question = Question.find_by_permalink(escape_for_url(permalink))
+      @question = Question.find_by_permalink(generate_permalink(permalink))
       haml :'questions/show', layout: :'layouts/application'
     end
 
