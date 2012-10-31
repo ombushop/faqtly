@@ -1,7 +1,6 @@
-include TheGreatEscape
-
 # encoding: utf-8
 class Question < Sequel::Model
+  include Permalinker
 
   plugin :validation_helpers
   many_to_many :tags

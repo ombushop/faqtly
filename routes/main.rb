@@ -1,5 +1,6 @@
 # encoding: utf-8
 class Faqtly < Sinatra::Application
+  include Permalinker
 
   get '/404' do
     haml :'404'
