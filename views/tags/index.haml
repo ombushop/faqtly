@@ -1,0 +1,15 @@
+%h1= t(:'tags.title')
+
+- if @tags.empty?
+  %h2= t(:no_tags)
+
+  %a{href: '/tags/new'}= t(:'tags.add')
+
+- @tags.each do |t|
+  .row
+    .span6
+      %h3= t.name
+    .span1.small
+      %a{ href: "/tags/#{t.name}/edit"}= t(:edit)
+      %form{ action: "/tags/#{t.name}", method: 'delete'}
+        %input{ type: 'submit', value: t(:delete) }
