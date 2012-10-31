@@ -6,15 +6,19 @@
   editing: "Editando"
   faq: "Preguntas Frecuentes"
   frequent_question: "Pregunta Frecuente"
+  name: "Nombre"
   no_questions: "¡No encontramos preguntas!"
   question_placeholder: "Ingresa la Pregunta"
   questions:
     ask: "Hacer una Pregunta"
     asking: "Haciendo una Pregunta"
+  tags:
+    adding: "Agregando un Tag"    
   response: "Respuesta"
   response_placeholder: "La respuesta es..."
   search_placeholder: "Buscar..."
   search: "Buscar"
+  tag_placeholder: "Procesadores de Pagos"
   show: "Ver"
   update: "Actualizar"
 
