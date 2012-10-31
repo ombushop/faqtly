@@ -1,0 +1,8 @@
+%div{ class: "control-group #{'error' if @tag.errors.any?}"}
+  %label{ for: 'tag[name]', class: 'control-label' }= t(:name)
+  .controls:
+    - tag = { id: 'tag[name]', name: 'tag[name]', size: '30', type: 'text', placeholder: t(:tag_placeholder), class: 'input-xxlarge' }
+    - tag.merge!({ value: @tag.name }) if @tag.name
+    %input{ tag }
+    - if @tag.errors.has_key? :name
+      %span.help-inline= @tag.errors.on(:name).map! { |m| "tag " + m }.join(", ")

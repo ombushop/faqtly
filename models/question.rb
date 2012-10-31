@@ -1,6 +1,10 @@
+include TheGreatEscape
+
 # encoding: utf-8
 class Question < Sequel::Model
+
   plugin :validation_helpers
+  many_to_many :tags
   
   def validate
     super
@@ -29,6 +33,6 @@ class Question < Sequel::Model
 
   # Updates the permalink using Rack::Utils
   def before_validation
-    self.permalink = Rack::Utils.escape(self.question)
+    self.permalink = escape_for_url(self.question)
   end
 end

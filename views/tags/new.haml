@@ -1,0 +1,6 @@
+%form{ action: '/tags', method: 'post', class: 'form-horizontal',  id: 'new-tags-form' }
+  %legend= t(:'tags.adding')
+  = partial :'tags/_form'
+  .control-group.span9
+    .controls.pull-right
+      %button{ type: 'submit', class: 'btn btn-primary' }= t(:create)
