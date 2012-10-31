@@ -63,7 +63,7 @@ class TestMain < Test::Unit::TestCase
 
   def test_question_show
     @question = Question.create( question: 'What would Steve Jobs do?',
-                      answer:   'He would probably Stay hungry Stay foolish.' )
+                      answer: 'He would probably Stay hungry Stay foolish.' )
 
     get "/questions/#{@question.permalink}"
     assert_equal 200, last_response.status
