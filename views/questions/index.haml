@@ -8,28 +8,8 @@
 - @questions.each do |q|
   .row
     .span6
-      %h3= q.question
+      %h3
+        %a{ href: "/questions/#{q.permalink}"}= q.question
       %p= q.answer
     .span1.small
       %a{ href: "/questions/#{q.id}/edit"}= t(:edit)
-      %a{ href: "/questions/#{q.permalink}"}= t(:show)
-
--#
--# #accordion2.accordion
--#   .accordion-group
--#     .accordion-heading
--#       %a.accordion-toggle{ "data-toggle" => "collapse", "data-parent" => "#accordion2", href: "#collapseOne" }
--#         Collapsible Group Item #1
--#
--#     #collapseOne.accordion-body.collapse.in
--#       .accordion-inner
--#         Anim pariatur cliche...
--#
--#   .accordion-group
--#     .accordion-heading
--#       %a.accordion-toggle{ "data-toggle" => "collapse", "data-parent" => "#accordion2", href: "#collapseTwo" }
--#         Collapsible Group Item #2
--#
--#     #collapseTwo.accordion-body.collapse
--#       .accordion-inner
--#         Anim pariatur cliche...
