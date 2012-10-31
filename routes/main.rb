@@ -31,8 +31,16 @@ class Faqtly < Sinatra::Application
   end
 
   get '/questions/new' do
+    protected!
     @question = Question.new
     haml :'questions/new', layout: :'layouts/application'
+  end
+
+  get '/tags/new' do
+    protected!
+
+    @tag = Tag.new
+    haml :'tags/new', layout: :'layouts/application'
   end
 
   get '/questions/:id/edit' do
@@ -42,6 +50,7 @@ class Faqtly < Sinatra::Application
   end
 
   post '/questions' do
+    protected!
     @question = Question.new(params[:question])
     @question.raise_on_save_failure = false
 
@@ -53,6 +62,7 @@ class Faqtly < Sinatra::Application
   end
 
   put '/questions/:id' do
+    protected!
     @question = Question[params[:id]]
     @question.raise_on_save_failure = false
     if @question.update(params[:question])
@@ -63,7 +73,7 @@ class Faqtly < Sinatra::Application
   end
 
   get %r{/questions/(.*)} do |permalink|
-    @question = Question.find_by_permalink(Rack::Utils.escape(permalink))
+    @question = Question.find_by_permalink(escape_for_url(permalink))
     haml :'questions/show', layout: :'layouts/application'
   end
 end
