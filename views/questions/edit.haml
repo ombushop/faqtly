@@ -1,4 +1,4 @@
-%form{ action: "/questions/#{@question.id}", method: 'post', class: 'form-horizontal',  id: 'new-questions-form' }
+%form{ action: "/questions/#{@question.permalink}", method: 'post', class: 'form-horizontal',  id: 'new-questions-form' }
   %input{ type: 'hidden', name: '_method', value: "put" }
   %legend= t(:editing)
   = partial :'questions/_form'
