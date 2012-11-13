@@ -1,6 +1,5 @@
 module Routes
   module Static
-
     # 
     # General paths
     # 
@@ -29,7 +28,7 @@ module Routes
     end  
 
     get %r{/questions/(.*)} do |permalink|
-      @question = Question.find_by_permalink(generate_permalink(permalink))
+      @question = find_question(permalink)
       haml :'questions/show', layout: :'layouts/application'
     end
 

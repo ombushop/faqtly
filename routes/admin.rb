@@ -14,7 +14,6 @@ module Routes
     post '/questions' do
       protected!
       @question = Question.new(params[:question])
-      @question.raise_on_save_failure = false
 
       if @question.save
         redirect to('/questions')
@@ -33,11 +32,11 @@ module Routes
       protected!
 
       @question = Question[params[:id]]
-      @question.raise_on_save_failure = false
+
       if @question.update(params[:question])
         redirect to('/questions')
       else
-        haml :"questions/edit/#{@question.id}", layout: :'layouts/application'
+        haml :"questions/edit", layout: :'layouts/application'
       end
     end
 
@@ -51,7 +50,19 @@ module Routes
       else
         haml :'tags/new', layout: :'layouts/application' 
       end
-    end  
+    end
+
+    put '/tags/:id' do
+      protected!
+
+      @tag = Tag[params[:id]]
+
+      if @tag.update(params[:tag])
+        redirect to('/tags')
+      else
+        haml :"tags/edit", layout: :'layouts/application'
+      end
+    end    
 
     delete '/tags/:name' do |name|
       protected!
@@ -69,10 +80,10 @@ module Routes
       end
     end
 
-    get '/tags/:name/edit' do |name|
+    get '/tags/:permalink/edit' do |permalink|
       protected!
 
-      @tag = Tag.where(name: name).first
+      @tag = Tag.where(permalink: permalink).first
       haml :'tags/edit', layout: :'layouts/application'
     end
 
