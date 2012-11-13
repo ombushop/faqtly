@@ -10,6 +10,7 @@
     .span6
       %h3= t.name
     .span1.small
-      %a{ href: "/tags/#{t.name}/edit"}= t(:edit)
-      %form{ action: "/tags/#{t.name}", method: 'delete'}
+      %a{ href: "/tags/#{t.permalink}/edit"}= t(:edit)
+      %form{ action: "/tags/#{t.permalink}", method: 'post'}
+        %input{ type: 'hidden', name: '_method', value: 'delete'}
         %input{ type: 'submit', value: t(:delete) }
