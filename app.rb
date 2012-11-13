@@ -1,6 +1,7 @@
 require_relative 'lib/permalinker'
 require_relative 'config/environment'
 
+
 class Faqtly < Sinatra::Application
   set :sessions => true
   set :haml, {:format => :html5, :escape_html => true}
@@ -8,6 +9,8 @@ class Faqtly < Sinatra::Application
 
   register Sinatra::I18nSupport
   load_locales File.join(Sinatra::Application.root, 'locales')
+  
+  use Rack::MethodOverride
 
   configure :production, :development do
     enable :logging
