@@ -21,7 +21,6 @@ Sinatra::Base.set :raise_errors, true
 Sinatra::Base.set :logging, false
 puts Sinatra::Base.environment
 require File.join(File.dirname(__FILE__), '../app')
-Sequel.connect("postgres://localhost/ayuda_test")
 
 def deny(test, msg=nil)
   if msg then
@@ -29,4 +28,8 @@ def deny(test, msg=nil)
   else
     assert !test
   end
+end
+
+def authorize_user!
+  basic_authorize('admin', 'admin')
 end
