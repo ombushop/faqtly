@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TestAdmin < Test::Unit::TestCase
+class TestQuestions < Test::Unit::TestCase
   def app
     Faqtly
   end
@@ -36,7 +36,6 @@ class TestAdmin < Test::Unit::TestCase
   end  
 
   def test_questions_update
-
     @question = Question.create( question: 'Lightning?',
                       answer:   'Thunder!' )
 

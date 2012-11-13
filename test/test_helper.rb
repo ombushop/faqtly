@@ -7,9 +7,10 @@ require 'rack/test'
 require 'debugger'
 require 'sequel_test_case'
 
+ENV['RACK_ENV'] = 'test'
+
 # Making Rack::Test available to all test cases
 class Test::Unit::TestCase
-  ENV['RACK_ENV'] = 'test'
   include Rack::Test::Methods
 end
 
