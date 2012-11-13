@@ -17,8 +17,8 @@ module Permalinker
   # @return [String] Clean and escaped string
   def generate_permalink(string = '')
     return '' if string.nil?
-    s = string.gsub(/[¿\?]/,'')
-    s = s.gsub(/\+/,'-').downcase
+    s = string.gsub(/[^\w\d\s]+/,'') # Remove weird chars
+    s = s.gsub(/[\+\s]/,'-').downcase
     escape_for_url(s)
   end
 end
