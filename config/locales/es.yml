@@ -9,6 +9,7 @@
   frequent_question: "Pregunta Frecuente"
   name: "Nombre"
   no_questions: "¡No encontramos preguntas!"
+  no_tags: "¡No encontramos etiquetas!"  
   question_placeholder: "Ingresa la Pregunta"
   questions:
     ask: "Hacer una Pregunta"

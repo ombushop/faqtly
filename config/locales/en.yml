@@ -9,6 +9,7 @@
   frequent_question: "Frequent Question"
   name: "Name"
   no_questions: "No questions found!"
+  no_tags: "No tags found!"
   question_placeholder: "Enter your Question"
   questions:
     ask: "Ask a Question"
