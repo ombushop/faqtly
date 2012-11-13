@@ -22,22 +22,34 @@ module Routes
       end
     end
 
-    get '/questions/:id/edit' do
+    get '/questions/:permalink/edit' do |permalink|
       protected!
-      @question = Question[params[:id]]
+      @question = find_question(permalink)
       haml :'questions/edit', layout: :'layouts/application'
     end
 
-    put '/questions/:id' do
+    put '/questions/:permalink' do |permalink|
       protected!
 
-      @question = Question[params[:id]]
+      @question = find_question(permalink)
 
       if @question.update(params[:question])
         redirect to('/questions')
       else
         haml :"questions/edit", layout: :'layouts/application'
       end
+    end
+
+    delete '/questions/:permalink' do |permalink|
+      protected!
+
+      @q = find_question(permalink)
+      
+      unless @q.delete
+        flash[:error] = t(:'fail.delete')
+      end
+
+      redirect '/tags'
     end
 
     post '/tags' do
@@ -52,10 +64,10 @@ module Routes
       end
     end
 
-    put '/tags/:id' do
+    put '/tags/:permalink' do |permalink|
       protected!
 
-      @tag = Tag[params[:id]]
+      @tag = find_tag(permalink)
 
       if @tag.update(params[:tag])
         redirect to('/tags')
@@ -64,26 +76,22 @@ module Routes
       end
     end    
 
-    delete '/tags/:name' do |name|
+    delete '/tags/:permalink' do |permalink|
       protected!
 
-      @tag = Tag.where(name: name)
+      @tag = find_tag(permalink)
 
-      if @tag
-        unless @tag.delete
-          flash[:error] = t(:'fail.delete')
-        end
-
-        redirect '/tags'
-      else
-        redirect '/404'
+      unless @tag.delete
+        flash[:error] = t(:'fail.delete')
       end
+
+      redirect '/tags'
     end
 
     get '/tags/:permalink/edit' do |permalink|
       protected!
 
-      @tag = Tag.where(permalink: permalink).first
+      @tag = find_tag(permalink)
       haml :'tags/edit', layout: :'layouts/application'
     end
 
