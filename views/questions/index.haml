@@ -13,3 +13,5 @@
       %p= q.answer
     .span1.small
       %a{ href: "/questions/#{q.id}/edit"}= t(:edit)
+      %form{ action: "/questions/#{q.permalink}", method: 'delete'}
+        %input{ type: 'submit', value: t(:delete) }
