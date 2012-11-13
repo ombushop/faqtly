@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'test_helper'
 
 class TestQuestions < Test::Unit::TestCase
@@ -24,9 +26,20 @@ class TestQuestions < Test::Unit::TestCase
     @question = Question.create( question: 'How much wood would a woodchuck chuck?',
                       answer:   'alot' )
     basic_authorize('admin', 'admin')
-    get "/questions/#{@question.id}/edit"
+    get "/questions/#{@question.permalink}/edit"
     assert_equal 200, last_response.status
     assert last_response.body.include?("value='put'")
+  end
+
+  def test_questions_delete
+    @question = Question.create( question: '¿Y candela? ¿¡Y la moto??',
+                  answer:   'Está todo bien' )
+    old_count = Question.count
+    basic_authorize('admin', 'admin')
+
+    delete "/questions/#{@question.permalink}"
+    assert_equal 302, last_response.status
+    assert_equal Question.count, old_count - 1
   end
 
   def test_questions_new_for_authorized_user
@@ -40,7 +53,7 @@ class TestQuestions < Test::Unit::TestCase
                       answer:   'Thunder!' )
 
     basic_authorize('admin', 'admin')
-    put "/questions/#{@question.id}", question: { question: "WWSJD?" }
+    put "/questions/#{@question.permalink}", question: { question: "WWSJD?" }
     assert_equal "WWSJD?", Question[@question.id].question
   end
 end

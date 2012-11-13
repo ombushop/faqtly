@@ -24,7 +24,7 @@ class TestTags < Test::Unit::TestCase
     basic_authorize('admin', 'admin')
     get "/tags/#{@tag.permalink}/edit"
     assert_equal 200, last_response.status
-    assert last_response.body.include?("method='put'")
+    assert last_response.body.include?("value='put'")
   end
 
   def test_tags_new_for_authorized_user
@@ -37,7 +37,7 @@ class TestTags < Test::Unit::TestCase
     @tag = Tag.create( name: 'Hosting' )
 
     basic_authorize('admin', 'admin')
-    put "/tags/#{@tag.id}", tag: { name: "Servers" }
+    put "/tags/#{@tag.permalink}", tag: { name: "Servers" }
     assert_equal "Servers", Tag[@tag.id].name
   end
 end
