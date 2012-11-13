@@ -73,6 +73,7 @@ GEM
     sinatra-support (1.2.2)
       sinatra (>= 1.0)
     slop (3.3.3)
+    sqlite3 (1.3.6)
     thin (1.5.0)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -102,4 +103,5 @@ DEPENDENCIES
   shotgun (~> 0.9)
   sinatra (~> 1.2.3)
   sinatra-support
+  sqlite3
   thin
