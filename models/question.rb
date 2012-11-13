@@ -2,6 +2,8 @@
 class Question < Sequel::Model
   include Permalinker
 
+  self.raise_on_save_failure = false
+
   plugin :validation_helpers
   many_to_many :tags
   
@@ -30,7 +32,7 @@ class Question < Sequel::Model
 
   private
 
-  # Updates the permalink using Rack::Utils
+  # Updates the permalink using [Permalinker]
   def before_validation
     self.permalink = generate_permalink(self.question)
   end
