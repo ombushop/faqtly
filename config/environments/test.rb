@@ -1,2 +1,3 @@
 puts "Loading test"
-Sequel.connect(ENV['DATABASE_URL'] || "postgres://localhost/ayuda_#{Sinatra::Base.environment}")
+
+DB = Sequel.sqlite 'faqtly_test.db'
