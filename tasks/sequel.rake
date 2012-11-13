@@ -1,5 +1,4 @@
 require 'sequel'
-require_relative '../app'
 
 namespace :sq do
 
