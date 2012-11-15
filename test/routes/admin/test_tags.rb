@@ -6,13 +6,13 @@ class TestTags < Test::Unit::TestCase
   end
 
   def test_create_a_tag
-    basic_authorize('admin', 'admin')
+    authorize_user!
     post '/tags', tag: { name: "Payment Gateways" }
     assert_equal 302, last_response.status
   end
 
   def test_error_messages_on_failed_tag_create
-    basic_authorize('admin', 'admin')
+    authorize_user!
     old_count = Tag.count
     post '/tags', tag: { name: "" }
     assert last_response.body.include?("tag is not present")
@@ -21,14 +21,14 @@ class TestTags < Test::Unit::TestCase
 
   def test_tags_edit
     @tag = Tag.create( name: 'Precios' )
-    basic_authorize('admin', 'admin')
+    authorize_user!
     get "/tags/#{@tag.permalink}/edit"
     assert_equal 200, last_response.status
     assert last_response.body.include?("value='put'")
   end
 
   def test_tags_new_for_authorized_user
-    basic_authorize('admin', 'admin')
+    authorize_user!
     get '/tags/new'
     assert last_response.body.include?("id='new-tags-form'")
   end  
@@ -36,7 +36,7 @@ class TestTags < Test::Unit::TestCase
   def test_tags_update
     @tag = Tag.create( name: 'Hosting' )
 
-    basic_authorize('admin', 'admin')
+    authorize_user!
     put "/tags/#{@tag.permalink}", tag: { name: "Servers" }
     assert_equal "Servers", Tag[@tag.id].name
   end

@@ -8,13 +8,13 @@ class TestQuestions < Test::Unit::TestCase
   end
 
   def test_create_a_question
-    basic_authorize('admin', 'admin')
+    authorize_user!
     post '/questions', question: { question: "Hello?", answer: 'Hello world!' }
     assert_equal 302, last_response.status
   end
 
   def test_error_messages_on_failed_question_create
-    basic_authorize('admin', 'admin')
+    authorize_user!
     old_count = Question.count
     post '/questions', question: { question: "", answer: "" }
     assert last_response.body.include?("answer is not present")
@@ -25,7 +25,7 @@ class TestQuestions < Test::Unit::TestCase
   def test_questions_edit
     @question = Question.create( question: 'How much wood would a woodchuck chuck?',
                       answer:   'alot' )
-    basic_authorize('admin', 'admin')
+    authorize_user!
     get "/questions/#{@question.permalink}/edit"
     assert_equal 200, last_response.status
     assert last_response.body.include?("value='put'")
@@ -35,7 +35,7 @@ class TestQuestions < Test::Unit::TestCase
     @question = Question.create( question: '¿Y candela? ¿¡Y la moto??',
                   answer:   'Está todo bien' )
     old_count = Question.count
-    basic_authorize('admin', 'admin')
+    authorize_user!
 
     delete "/questions/#{@question.permalink}"
     assert_equal 302, last_response.status
@@ -43,7 +43,7 @@ class TestQuestions < Test::Unit::TestCase
   end
 
   def test_questions_new_for_authorized_user
-    basic_authorize('admin', 'admin')
+    authorize_user!
     get '/questions/new'
     assert last_response.body.include?("id='new-questions-form'")
   end  
@@ -52,7 +52,7 @@ class TestQuestions < Test::Unit::TestCase
     @question = Question.create( question: 'Lightning?',
                       answer:   'Thunder!' )
 
-    basic_authorize('admin', 'admin')
+    authorize_user!
     put "/questions/#{@question.permalink}", question: { question: "WWSJD?" }
     assert_equal "WWSJD?", Question[@question.id].question
   end
