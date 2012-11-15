@@ -35,4 +35,10 @@ namespace :sq do
       puts "<= sq:migrate:down executed"
     end
   end
+
+  task :reset do
+    Rake::Task["down"].invoke
+    Rake::Task["up"].invoke
+    Rake::Task["seed"].invoke
+  end
 end
