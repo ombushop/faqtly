@@ -37,8 +37,8 @@ namespace :sq do
   end
 
   task :reset do
-    Rake::Task["down"].invoke
-    Rake::Task["up"].invoke
+    Rake::Task["sq:migrate:down"].invoke
+    Rake::Task["sq:migrate:up"].invoke
     Rake::Task["seed"].invoke
   end
 end
