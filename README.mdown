@@ -1,50 +1,30 @@
-# Faqtly by OmbuShop
+# Ayuda by OmbuShop
 
-## A simple web app to post questions and find answers
-
-This web application lets you:
+## Features
 
 * Post a question
 * Search for an answer
 * Manage questions and answers
 
-## What is the purpose of Faqtly?
+## Setup
 
-A simple way to launch a FAQ web application for your service.
-
-## How do I get started?
-
-First you'll need to fork the project and then clone to your local machine.
-
-    git clone git@github.com:YOURUSER/faqtly.git
-
-Then:
-
+    git clone git@github.com:etagwerker/faqtly.git
+    cd faqtly
     bundle install
 
-Then: 
+## Setup Database
 
-    # Create databases ayuda_development, ayuda_test, ayuda_production 
+    bundle exec rake sq:reset
 
-    bundle exec rake sq:migrate:auto
+## Start
 
-## How do I start the application?
-
-After you've ran `bundle install` and Sinatra as well as the other required gems are installed, start it up by running this command:
-
-    bundle exec rake start
+    bundle exec shotgun
 
 This will start Faqtly on port 9393 and will now be able to view the application in your web browser at this URL [http://localhost:9393](http://localhost:9393).
 
-You'll also want to open a new terminal window to the same directory and run the Compass watch rake task so we can monitor our Sass files for changes.
-
-    rake styles:watch
-
-Or you just run `compass watch`, either work.
-
 ## Credits
 
-* To @adamstac for his [Sinatra Bootstrap](https://github.com/adamstac/sinatra-bootstrap)
+* To @leanucci and @etagwerker.
 
 ## License
 

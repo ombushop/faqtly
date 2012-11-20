@@ -6,8 +6,7 @@ gem 'sinatra-support'
 gem 'shotgun', '~> 0.9'
 gem 'haml', '~> 3.1.4'
 gem 'sequel'
-gem 'sequel_pg'
-gem 'pg', "0.13.2"
+
 gem 'thin'
 gem 'i18n'
 
@@ -27,6 +26,11 @@ group :development, :test do
   gem 'debugger'
   gem 'pry'
   gem 'pry-nav'
+end
+
+group :production do
+  gem 'sequel_pg'
+  gem 'pg', "0.13.2"
 end
 
 group :test do

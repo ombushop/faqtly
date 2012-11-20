@@ -10,7 +10,8 @@ module Permalinker
   def generate_permalink(string = '')
     return '' if string.nil?
 
-    s = String.new(remove_accents(string))
+    s = string.clone
+    s = remove_accents(s)
 
     s.gsub!(/[^\w\d\s]+/,'') # Remove weird chars
     s.gsub!(/[\+\s]/,'-')
