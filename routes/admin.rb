@@ -49,7 +49,7 @@ module Routes
         flash[:error] = t(:'fail.delete')
       end
 
-      redirect '/tags'
+      redirect '/questions'
     end
 
     post '/tags' do
