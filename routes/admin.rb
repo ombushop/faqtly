@@ -4,6 +4,11 @@ module Routes
   # Admin paths
   # 
   module Admin
+
+    get '/login' do
+      protected!
+      redirect '/questions'
+    end
     
     get '/questions/new' do
       protected!
