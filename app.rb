@@ -1,5 +1,6 @@
 require_relative 'lib/permalinker'
 require_relative 'config/environment'
+require 'rack-flash'
 
 class Faqtly < Sinatra::Application
   set :sessions => true
@@ -10,6 +11,7 @@ class Faqtly < Sinatra::Application
   load_locales File.join(Sinatra::Application.root, 'locales')
   
   use Rack::MethodOverride
+  use Rack::Flash, :sweep => true
 
   configure :production, :development do
     enable :logging
