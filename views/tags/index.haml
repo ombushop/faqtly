@@ -8,9 +8,11 @@
 - @tags.each do |t|
   .row
     .span6
-      %h3= t.name
-    .span1.small
-      %a{ href: "/tags/#{t.permalink}/edit"}= t(:edit)
-      %form{ action: "/tags/#{t.permalink}", method: 'post'}
-        %input{ type: 'hidden', name: '_method', value: 'delete'}
-        %input{ type: 'submit', value: t(:delete) }
+      %h3
+        %a{href: "/tags/#{t.permalink}", title: t(:'tags.questions', name: t.name)}= t.name
+    - if can?
+      .span1.small
+        %a{ href: "/tags/#{t.permalink}/edit"}= t(:edit)
+        %form{ action: "/tags/#{t.permalink}", method: 'post'}
+          %input{ type: 'hidden', name: '_method', value: 'delete'}
+          %input{ type: 'submit', value: t(:delete) }
