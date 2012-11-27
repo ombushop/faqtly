@@ -10,13 +10,18 @@
   name: "Name"
   no_questions: "No questions found!"
   no_tags: "No tags found!"
+  next: "Next page"  
+  previous: "Previous page"    
   question_placeholder: "Enter your Question"
   questions:
     ask: "Ask a Question"
     asking: "Asking a Question"
+    title: "Questions"    
+  searching_for: "Searching for: %{q}"    
   tags:
     add: "Add a Tag"
     adding: "Adding a Tag"
+    questions: "Questions with tag %{name}"    
     title: "Tags"    
   response: "Answer"
   response_placeholder: "The answer is..."
