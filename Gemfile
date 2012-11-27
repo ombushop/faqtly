@@ -16,6 +16,7 @@ gem 'compass', '~> 0.11.6'
 
 # Sass libraries
 gem 'grid-coordinates', '~> 1.1.4'
+gem 'rack-flash3'
 
 group :deployment do
   gem 'heroku'
