@@ -4,7 +4,7 @@ module Routes
     # General paths
     # 
     get '/' do
-      @questions = Question.all
+      @questions = Question.paginated(params)
       haml :'questions/index', layout: :'layouts/application'
     end
 
@@ -17,12 +17,14 @@ module Routes
     end
 
     get '/questions' do
-      @questions = Question.all
+      @questions = Question.paginated(params)
       haml :'questions/index', layout: :'layouts/application'
     end
 
     get '/questions/search' do
       @query = params[:q]
+      flash[:notice] = t(:searching_for, q: @query)
+
       @questions = Question.full_text_search(@query)
       haml :'questions/index', layout: :'layouts/application'
     end  
@@ -41,6 +43,13 @@ module Routes
       @tags = Tag.all
 
       haml :'tags/index', layout: :'layouts/application'
+    end
+
+    get '/tags/:permalink' do |permalink|
+      @tag = find_tag(permalink)
+      @questions = Question.paginated(scope: @tag.questions)
+
+      haml :'tags/show', layout: :'layouts/application'
     end
   end
 end
