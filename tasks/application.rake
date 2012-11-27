@@ -19,11 +19,12 @@ task :seed => :environment do
     answer = row[2]
 
     tag = Tag.where(name: tag_name).first
-    tag = Tag.create(name: tag_name) unless tag
+    tag = Tag.new(name: tag_name).save unless tag
     
     q = Question.new(question: question, answer: answer)
-    q.tags << tag
     q.save
+    q.add_tag(tag)
+
   end
 
 end
