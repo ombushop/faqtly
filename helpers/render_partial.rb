@@ -27,7 +27,8 @@ module RenderPartial
     result = ""
     scope = opts[:scope] || Question
 
-    if (size = scope.page_count) > 1
+
+    if scope && (size = scope.page_count) > 1
       page = (params[:page] || 1).to_i
 
       if page > 1

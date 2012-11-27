@@ -25,7 +25,7 @@ module Routes
       @query = params[:q]
       flash[:notice] = t(:searching_for, q: @query)
 
-      @questions = Question.full_text_search(@query)
+      @questions = Question.full_text_search(@query, params)
       haml :'questions/index', layout: :'layouts/application'
     end  
 

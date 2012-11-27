@@ -17,9 +17,11 @@ class Question < Sequel::Model
   # It searches through question and answer content.
   # 
   # @return [Array]
-  def self.full_text_search(query)
-    Question.where(Sequel.like(:answer, "%#{query}%")).
+  def self.full_text_search(query, params = {})
+    scope = Question.where(Sequel.like(:answer, "%#{query}%")).
                   or(Sequel.like(:question, "%#{query}%"))
+
+    self.paginated(params.merge(scope: scope))
     # TODO full_text_search('answer', query)
   end
 
