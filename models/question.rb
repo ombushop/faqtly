@@ -30,6 +30,13 @@ class Question < Sequel::Model
     Question.where(permalink: permalink).first
   end
 
+  def self.paginated(params = {})
+    scope = params[:scope] || Question
+    page = params[:page] || 1
+    per_page = params[:per_page] || 2
+    scope.paginate(page.to_i, per_page.to_i)
+  end
+
   private
 
   # Updates the permalink using [Permalinker]
